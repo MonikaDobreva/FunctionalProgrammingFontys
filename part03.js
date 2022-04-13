@@ -6,9 +6,9 @@
  */
 
  const Left = x => ({
-    flatMap: _ => Error,
-    emit: () => Error,
-    map: _ => Error,
+    flatMap: f => Left(x),
+    emit: () => x,
+    map: f => Left(x),
     isLeft: true,
     isRight: false,
     inspect: () => `Left(${x})`
@@ -24,7 +24,7 @@
 });
 
 const Either = {
-    of: x => x === Error || x.isLeft ? Left() : Right(x)
+    of: x => x === Error || x.isLeft ? Left(x) : Right(x)
 };
 
 // Simulate saving to the database and return the result
