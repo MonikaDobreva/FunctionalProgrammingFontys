@@ -6,9 +6,9 @@
  */
 
  const Left = x => ({
-    flatMap: f => Left(x),
+    flatMap: _ => Left(x),
     emit: () => x,
-    map: f => Left(x),
+    map: _ => Left(x),
     isLeft: true,
     isRight: false,
     inspect: () => `Left(${x})`
