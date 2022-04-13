@@ -24,7 +24,7 @@
 });
 
 const Either = {
-    of: x => x === Error || x.isLeft ? Left(x) : Right(x)
+    of: x => x instanceof Error || x.isLeft ? Left(x) : Right(x)
 };
 
 // Simulate saving to the database and return the result
